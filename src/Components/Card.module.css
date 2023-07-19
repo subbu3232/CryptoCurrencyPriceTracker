@@ -1,0 +1,32 @@
+.card{
+    border: 2px solid black;
+    height:19rem;
+    width: 20rem;
+  border-radius: 1rem;
+  background: linear-gradient(to bottom left ,#800080,#FFC0CB);
+  margin: 1rem;
+  display: flex;
+  flex-direction: column    ;
+  font-family: 'Bebas Neue', sans-serif;
+  
+  }
+  
+  .logo{
+height: 9rem;
+width: 9rem;
+margin-left: 26%;
+  }
+  .details{
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .name{
+    margin-top:0.5rem;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .container{
+    display: grid
+    
+
+  }

@@ -1,0 +1,32 @@
+.header {
+  background: linear-gradient(to bottom left, #800080, #FFC0CB);
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  border: none;
+  height: 1.9rem;
+  width: 13rem;
+  border-radius: 1rem 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.search:hover{
+    box-shadow: 0 0 10px 10px #800080;}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}
