@@ -6,18 +6,26 @@ const Home = () => {
   const [data, setData] = useState([]);
 const[search,setSearch]=useState("");
   useEffect(() => {
-    fetch("https://api.coinstats.app/public/v1/coins?slip=0&limit=100")
+    
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    'X-API-KEY': '5eSYW2s0oOysQa5HziHRZsKM9KAJP5mwJ4JxG5goIVE='
+  }
+};
+    fetch("https://openapiv1.coinstats.app/coins",options)
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
-        console.log(data);
+        setData(data.result);
+        console.log(data.result);
       });
   }, []);
   const searchHandler=(e)=>{
     setSearch(e.target.value)
 
 
-
+ 
   }
     
   
@@ -25,19 +33,18 @@ const[search,setSearch]=useState("");
     <>
       <div className={styles.header}>
         <input type="text" placeholder=" Search " onChange={searchHandler} className={styles.search} />
-       
-      </div>
+  </div>
       <br />
       <div className={styles.card}>
-  {data.coins &&
-    data.coins.filter((crypto)=>crypto.name.toLowerCase().includes(search.toLowerCase())).map((crypto) => (
+  {data.length>0 &&
+    data.filter((crypto)=>crypto.name.toLowerCase().includes(search.toLowerCase())).map((crypto) => (
       <Card
-        name={crypto.name}
+        name={crypto.id}
         rank={crypto.rank}
         price={crypto.price}
         marketCap={crypto.marketCap}
         icon={crypto.icon}
-        key={crypto.id}
+        key={crypto.rank}
       />
     ))}
 </div>
